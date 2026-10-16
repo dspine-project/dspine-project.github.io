@@ -135,11 +135,19 @@ figcaption b { color: var(--ink-2); font-weight: 600; }
 /* ---------- news ---------- */
 .news { padding-block: 28px 0; }
 .news .sec-title { font-size: 1.35rem; }
-.news-list { margin: 14px auto 0; padding: 0; list-style: none; }
-.news-list li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 6px 18px; align-items: baseline; color: var(--ink-2); }
+.news-list { max-width: 40rem; margin: 14px auto 0; padding: 0; list-style: none; font-size: 16px; }
+.news-list li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 14px; align-items: center; padding-block: 9px; color: var(--ink-2); }
+.news-list li + li { border-top: 1px solid var(--line); }
 .news-list time { color: var(--muted); font: 500 12px/1.65 var(--font-mono); white-space: nowrap; }
+.news-list p { border-left: 1px solid var(--line); padding-left: 14px; }
+.news-icon { display: inline-block; width: 1.2em; margin-right: 8px; font-size: 16px; text-align: center; }
 .news-list a { color: var(--accent); text-underline-offset: 3px; }
-@media (max-width: 520px) { .news-list li { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 520px) {
+  .news-list { font-size: 15px; }
+  .news-list li { gap: 10px; }
+  .news-list time { font-size: 11px; }
+  .news-list p { padding-left: 10px; }
+}
 
 /* ---------- charts (redrawn from the paper's figure data) ---------- */
 .chartbox { padding: 0; }
@@ -336,16 +344,16 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 44px; text-align
     <h2 class="sec-title" id="news-title">News</h2>
     <ul class="news-list measure">
       <li>
-        <time datetime="2026-10-17">2026-10-17</time>
-        <p><a href="https://arxiv.org/abs/2609.36173" target="_blank" rel="noopener">Paper</a> released on arXiv.</p>
+        <time datetime="2026-10">Oct 2026</time>
+        <p><span class="news-icon" aria-hidden="true">📄</span><a href="https://arxiv.org/abs/2609.36173" target="_blank" rel="noopener">Paper</a> released on arXiv.</p>
       </li>
       <li>
-        <time datetime="2026-10-17">2026-10-17</time>
-        <p><a href="https://github.com/tencent/dspine" target="_blank" rel="noopener">Inference code</a> released.</p>
+        <time datetime="2026-10">Oct 2026</time>
+        <p><span class="news-icon" aria-hidden="true">💻</span><a href="https://github.com/tencent/dspine" target="_blank" rel="noopener">Inference code</a> released.</p>
       </li>
       <li>
-        <time datetime="2026-10-17">2026-10-17</time>
-        <p><a href="https://huggingface.co/tencent/Qwen3-8B-DSpine-b16" target="_blank" rel="noopener">Qwen3-8B draft weights</a> released.</p>
+        <time datetime="2026-10">Oct 2026</time>
+        <p><span class="news-icon" aria-hidden="true">🤗</span><a href="https://huggingface.co/tencent/Qwen3-8B-DSpine-b16" target="_blank" rel="noopener">Qwen3-8B draft weights</a> released.</p>
       </li>
     </ul>
   </section>
