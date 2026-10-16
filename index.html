@@ -134,16 +134,16 @@ figcaption b { color: var(--ink-2); font-weight: 600; }
 
 /* ---------- updates and headline results ---------- */
 .overview { margin-top: 30px; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
-.news { padding: 20px 24px 18px; }
-.news .sec-title { font-size: 1.2rem; text-align: left; }
-.news-list { margin: 12px 0 0; padding: 0; list-style: none; font-size: 15px; line-height: 1.5; }
+.news { padding: 24px 24px 0; }
+.news .sec-title { font-size: 1.2rem; text-align: center; }
+.news-list { width: fit-content; max-width: 100%; margin: 12px auto 0; padding: 0; list-style: none; font-size: 15px; line-height: 1.5; }
 .news-list li { display: grid; grid-template-columns: 82px minmax(0, 1fr); gap: 12px; align-items: baseline; padding-block: 3px; color: var(--ink-2); }
 .news-list time { color: var(--muted); font: 500 12px/1.5 var(--font-mono); white-space: nowrap; }
 .news-icon { display: inline-block; width: 1.2em; margin-right: 6px; font-size: 14px; text-align: center; }
 .news-list a { color: var(--accent); font-weight: 600; text-decoration: none; text-underline-offset: 3px; }
 .news-list a:hover { color: var(--accent); text-decoration: underline; }
-.overview #teaser { padding: 24px 20px 26px; border-top: 1px solid var(--line); }
-.teaser-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin: 0 4px 20px; }
+.overview #teaser { padding: 24px 20px 26px; border-top: 0; }
+.teaser-heading { display: flex; flex-direction: column; align-items: center; gap: 6px; margin: 0 4px 20px; text-align: center; }
 .teaser-heading h2 { font-size: 1.3rem; line-height: 1.25; }
 .teaser-meta { color: var(--muted); font-size: 13px; white-space: nowrap; }
 .teaser-figure { margin: 0; }
@@ -151,7 +151,7 @@ figcaption b { color: var(--ink-2); font-weight: 600; }
 .overview + section { margin-top: 48px; border-top: 1px solid var(--line); }
 @media (max-width: 700px) {
   .overview { margin-top: 24px; border-radius: 12px; }
-  .news { padding: 18px; }
+  .news { padding: 24px 18px 0; }
   .news-list { font-size: 14px; }
   .news-list li { grid-template-columns: 74px minmax(0, 1fr); gap: 8px; }
   .news-list time { font-size: 11px; }
@@ -353,7 +353,6 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 44px; text-align
   </header>
 
   <!-- ================================================================ updates and headline results -->
-  <div class="overview">
   <section class="news" id="news" aria-labelledby="news-title">
     <h2 class="sec-title" id="news-title">News</h2>
     <ul class="news-list">
@@ -374,6 +373,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 44px; text-align
   </section>
 
   <!-- ================================================================ results comparison -->
+  <div class="overview">
   <section class="first" id="teaser" aria-labelledby="teaser-title">
     <div class="teaser-heading">
       <h2 id="teaser-title">Acceptance Length</h2>
