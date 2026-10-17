@@ -136,8 +136,9 @@ figcaption b { color: var(--ink-2); font-weight: 600; }
 .overview { margin-top: 30px; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
 .news { padding: 24px 24px 0; }
 .news .sec-title { font-size: 1.2rem; text-align: center; }
-.news-list { width: fit-content; max-width: 100%; margin: 12px auto 0; padding: 0; list-style: none; font-size: 15px; line-height: 1.5; }
-.news-list li { display: grid; grid-template-columns: 82px minmax(0, 1fr); gap: 12px; align-items: baseline; padding-block: 3px; color: var(--ink-2); }
+.news-list { width: max-content; max-width: 100%; margin: 12px auto 0; padding: 0; overflow-x: auto; list-style: none; font-size: 15px; line-height: 1.5; }
+.news-list li { display: grid; grid-template-columns: 82px max-content; gap: 12px; align-items: baseline; padding-block: 3px; color: var(--ink-2); }
+.news-list p { white-space: nowrap; }
 .news-list time { color: var(--muted); font: 500 12px/1.5 var(--font-mono); white-space: nowrap; }
 .news-icon { display: inline-block; width: 1.2em; margin-right: 6px; font-size: 14px; text-align: center; }
 .news-list a { color: var(--accent); font-weight: 600; text-decoration: none; text-underline-offset: 3px; }
@@ -153,7 +154,7 @@ figcaption b { color: var(--ink-2); font-weight: 600; }
   .overview { margin-top: 24px; border-radius: 12px; }
   .news { padding: 24px 18px 0; }
   .news-list { font-size: 14px; }
-  .news-list li { grid-template-columns: 74px minmax(0, 1fr); gap: 8px; }
+  .news-list li { grid-template-columns: 74px max-content; gap: 8px; }
   .news-list time { font-size: 11px; }
   .overview #teaser { padding: 20px 14px; }
   .teaser-heading { flex-direction: column; gap: 6px; margin: 0 2px 18px; }
