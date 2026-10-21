@@ -136,11 +136,13 @@ figcaption b { color: var(--ink-2); font-weight: 600; }
 .overview { margin-top: 30px; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
 .news { padding: 24px 24px 0; }
 .news .sec-title { font-size: 1.2rem; text-align: center; }
-.news-list { width: max-content; max-width: 100%; margin: 12px auto 0; padding: 0; overflow-x: auto; list-style: none; font-size: 15px; line-height: 1.5; }
-.news-list li { display: grid; grid-template-columns: 82px max-content; gap: 12px; align-items: baseline; padding-block: 3px; color: var(--ink-2); }
-.news-list p { white-space: nowrap; }
+.news-list { width: max-content; max-width: 100%; margin: 12px auto 0; padding: 0; list-style: none; font-size: 15px; line-height: 1.5; }
+.news-list li { display: grid; grid-template-columns: 82px minmax(0, max-content); gap: 12px; align-items: baseline; padding-block: 3px; color: var(--ink-2); }
+/* Each announcement stays on one line whenever it fits (narrow screens shrink the text below); only on extremely
+   narrow screens does it wrap, aligned after the icon, instead of scrolling sideways. */
+.news-list p { padding-left: 23px; text-indent: -23px; }   /* 23px = icon 1.2 x 14px + 6px margin */
 .news-list time { color: var(--muted); font: 500 12px/1.5 var(--font-mono); white-space: nowrap; }
-.news-icon { display: inline-block; width: 1.2em; margin-right: 6px; font-size: 14px; text-align: center; }
+.news-icon { display: inline-block; width: 1.2em; margin-right: 6px; font-size: 14px; text-align: center; text-indent: 0; }
 .news-list a { color: var(--accent); font-weight: 600; text-decoration: none; text-underline-offset: 3px; }
 .news-list a:hover { color: var(--accent); text-decoration: underline; }
 .overview #teaser { padding: 24px 20px 26px; border-top: 0; }
@@ -152,10 +154,12 @@ figcaption b { color: var(--ink-2); font-weight: 600; }
 .overview + section { margin-top: 48px; border-top: 1px solid var(--line); }
 @media (max-width: 700px) {
   .overview { margin-top: 24px; border-radius: 12px; }
-  .news { padding: 24px 18px 0; }
-  .news-list { font-size: 14px; }
-  .news-list li { grid-template-columns: 74px max-content; gap: 8px; }
-  .news-list time { font-size: 11px; }
+  .news { padding: 24px 0 0; }   /* the page gutter already separates the list from the screen edge */
+  /* From a 374px-wide viewport up these are exactly 14px / 74px / 8px / 11px; below that the whole row shrinks with
+     the screen (down to 11px text) so each announcement still fits on one line. */
+  .news-list { font-size: clamp(11px, 3.75vw, 14px); }
+  .news-list li { grid-template-columns: clamp(58.2px, 19.83vw, 74px) minmax(0, max-content); gap: clamp(6.3px, 2.15vw, 8px); }
+  .news-list time { font-size: clamp(8.7px, 2.95vw, 11px); }
   .overview #teaser { padding: 20px 14px; }
   .teaser-heading { flex-direction: column; gap: 6px; margin: 0 2px 18px; }
   .teaser-heading h2 { font-size: 1.2rem; }
