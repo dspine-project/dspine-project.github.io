@@ -52,8 +52,8 @@
   --font-body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
-  --wide: 1080px;
-  --measure: 54rem;        /* running text and the figures aligned with it */
+  --wide: 1280px;
+  --measure: 64rem;        /* running text and the figures aligned with it */
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -109,6 +109,10 @@ h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; le
 .hero .subtitle { margin-top: 8px; font: 600 clamp(1.05rem, 1.9vw, 1.28rem)/1.35 var(--font-display); color: var(--ink-2); }
 .authors { margin: 22px auto 0; font-size: 17px; line-height: 1.75; max-width: 46rem; text-wrap: balance; }
 .authors span { white-space: nowrap; }
+@media (min-width: 1000px) {
+  .hero h1 { max-width: none; }
+  .authors { max-width: var(--measure); }
+}
 sup { font-size: .68em; color: var(--muted); }
 .affils { margin-top: 4px; font-size: 15px; color: var(--muted); display: flex; justify-content: center; flex-wrap: wrap; gap: 2px 20px; }
 .contrib { margin-top: 2px; font-size: 13.5px; color: var(--faint); }
